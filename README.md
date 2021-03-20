@@ -68,27 +68,7 @@ Listeners & Plug-Ins
 . Quartz ships with a number of "factory built" plug-ins and listeners.
 ```
 
-```commandline
- [           main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
-  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
-  NOT STARTED.
-  Currently in standby mode.
-  Number of jobs executed: 0
-  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
-  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
- Starting Quartz Scheduler now
- [           main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
- [eduler_Worker-1] c.s.b.n.job.EmailNotificationJob         : Job ** Qrtz_Email_Detail ** fired @ Fri Mar 19 20:17:04 EDT 2021
- [eduler_Worker-1] c.s.b.n.s.EmailNotificationServiceImpl   : Email Reminder trigger by service
- [eduler_Worker-1] c.s.b.n.job.EmailNotificationJob         : Next job scheduled @ Fri Mar 19 20:18:03 EDT 2021
- [           main] com.sbr.batch.notification.Main          : Started Main in 2.487 seconds (JVM running for 2.862)
- [eduler_Worker-2] c.s.b.n.job.EmailNotificationJob         : Job ** Qrtz_Email_Detail ** fired @ Fri Mar 19 20:18:03 EDT 2021
- [eduler_Worker-2] c.s.b.n.s.EmailNotificationServiceImpl   : Email Reminder trigger by service
-[eduler_Worker-2] c.s.b.n.job.EmailNotificationJob         : Next job scheduled @ Fri Mar 19 20:19:03 EDT 2021
-```
-
 ```java
-//
 @Component
 @Slf4j
 public class EmailNotificationJob implements Job {
@@ -151,4 +131,23 @@ spring:
   quartz:
     job-store-type: memory
 
+```
+
+```commandline
+ [           main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+ Starting Quartz Scheduler now
+ [           main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+ [eduler_Worker-1] c.s.b.n.job.EmailNotificationJob         : Job ** Qrtz_Email_Detail ** fired @ Fri Mar 19 20:17:04 EDT 2021
+ [eduler_Worker-1] c.s.b.n.s.EmailNotificationServiceImpl   : Email Reminder trigger by service
+ [eduler_Worker-1] c.s.b.n.job.EmailNotificationJob         : Next job scheduled @ Fri Mar 19 20:18:03 EDT 2021
+ [           main] com.sbr.batch.notification.Main          : Started Main in 2.487 seconds (JVM running for 2.862)
+ [eduler_Worker-2] c.s.b.n.job.EmailNotificationJob         : Job ** Qrtz_Email_Detail ** fired @ Fri Mar 19 20:18:03 EDT 2021
+ [eduler_Worker-2] c.s.b.n.s.EmailNotificationServiceImpl   : Email Reminder trigger by service
+[eduler_Worker-2] c.s.b.n.job.EmailNotificationJob         : Next job scheduled @ Fri Mar 19 20:19:03 EDT 2021
 ```
